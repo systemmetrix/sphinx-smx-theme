@@ -1,0 +1,637 @@
+/*コンテンツ部分共通*/
+body {
+    width: 100%;
+    min-width: 600px;
+    color: #333333;
+    overflow-y: hidden;
+}
+
+#top-page>h1 {
+    display: none;
+}
+
+.block-contents {
+    width: 100%;
+    margin: 0;
+    padding: 0 5%;
+}
+
+.body>.block-contents>.section {
+    margin: 0 auto!important;
+    padding-top: 0;
+    max-width: 1000px;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.row {
+    /*bootstrapのmargin相殺*/
+    margin-right: 0;
+    margin-left: 0;
+}
+
+@media (min-width: 1600px) {
+    .main-nav {
+        width: 400px;
+    }
+
+    .main-contents {
+        padding: 0;
+        width: calc(100% - 400px);
+    }
+}
+
+@media (max-width: 1599px) {
+    .main-nav {
+        width: 25%;
+    }
+
+    .main-contents {
+        padding: 0;
+        width: 75%;
+    }
+}
+
+.main-contents {
+    background-color: #fff;
+}
+
+.main-contents, .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 55px);
+    /*100vh - ヘッダーの高さ*/
+}
+
+ul {
+    padding-left: 0px;
+}
+
+a {
+    color: #4a88bf!important;
+}
+
+.current, .active {
+    border-radius: 0!important;
+}
+
+.pseudo-icon:before, .pseudo-icon>p:before, .pseudo-icon:after, .compound-last>li p:before {
+    font-family: "Font Awesome 5 Free";
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 30px;
+    text-rendering: auto;
+    font-weight: bold;
+    padding-right: 10px;
+    color: #666;
+}
+
+.top-img {
+    width: 300px!important;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/*ヘッダ*/
+.sticky-top {
+    border-bottom: solid 1px #ccc;
+}
+
+nav.navbar {
+    background-color: #fff!important;
+    /*Bootstrapの上書き*/
+    padding: 8px 0!important;
+}
+
+@media (min-width: 1600px) {
+    .header_logo {
+        width: 380px;
+        /*ナビと左マージンを揃える*/
+        margin-left: 20px;
+    }
+
+    .header_contents {
+        width: calc(100% - 400px);
+    }
+}
+
+@media (max-width: 1599px) {
+    .header_logo {
+        width: 25%;
+        /*ナビと左マージンを揃える*/
+        padding-left: 20px;
+    }
+
+    .header_contents {
+        width: 75%;
+    }
+}
+
+button.navbar-toggler {
+    /*トグルボタンをヘッダー高さに揃える。ボタンが画像のためpaddingで調整*/
+    padding: 3px 12px;
+    margin-right: 20px;
+}
+
+.header_contents_form {
+    /*フッターとマージンを揃える(widthに影響があるためpadding)*/
+    padding-right: 2.5%;
+}
+
+@media (min-width: 1481px) {
+    .header_contents_form {
+        /*幅 - maxコンテンツ幅 - スクロールバー の半分 */
+        padding-left: calc((100% - 1000px - 17px)/ 2);
+    }
+}
+
+@media (max-width: 1480px) {
+    .header_contents_form {
+        /*コンテンツのpadding。親要素はスクロールバー込幅のためスクロールバー分の調整不要*/
+        padding-left: 5%;
+    }
+}
+
+/*収納ヘッダー用*/
+@media (max-width: 991px) {
+    .header_contents_form {
+        padding-left: 20px;
+    }
+}
+
+ul.header_contents_link {
+    width: 250px;
+    /*Bootstrapの上書き*/
+    margin-right: 0!important;
+}
+
+a.navbar-brand img {
+    height: 30px!important;
+}
+
+a.navbar-brand {
+    padding: 0;
+}
+
+ul.navbar-nav li {
+    padding: 0 5px;
+}
+
+li.nav-item:first-child {
+    margin-left: auto;
+}
+
+@media (max-width: 992px) {
+    li.nav-item:first-child {
+        margin-left: 0;
+    }
+}
+
+form.header-search {
+    position: relative;
+    height: 38px;
+}
+
+@media (min-width: 992px) {
+    form.header-search {
+        margin: 0 auto 0 0;
+        width: 40%;
+        min-width: 300px;
+    }
+}
+
+form input {
+    width: 100%!important;
+}
+
+form input[aria-label="Search"] {
+    padding-left: 30px;
+    margin-right: 0!important; /* Bootstrap上書き用 */
+}
+
+form button:after {
+    /*検索ボタンを虫めがねのアイコンにする*/
+    content: '\f002';
+    font-size: 15px!important;
+    height: 15px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.btn-outline-success, .btn-outline-success:active, .btn-outline-success:hover {
+    /*検索ボタンの見た目を全てキャンセル*/
+    color: inherit!important;
+    background-color: inherit!important;
+    cursor: inherit!important;
+    border: none!important;
+    pointer-events: none!important;
+}
+
+.btn-outline-success.focus, .btn-outline-success:focus {
+    box-shadow: initial!important;
+}
+
+/*言語にアイコンを付ける*/
+
+.dropdown-menu {
+    left: -90px;
+}
+
+a.icon-ja:before, a.icon-en:before {
+    content: '' ;
+    background-size: contain;
+    width: 34px;
+    height: 23px;
+    vertical-align: -5px;
+    margin-right: 15px;
+}
+
+a.icon-ja:before {
+    background-image: url("ja.png");
+}
+
+a.icon-en:before {
+    background-image: url("en.png");
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #666!important;
+}
+
+/*ナビ*/
+.main-nav {
+    background-color: #fff;
+}
+
+.main-nav a {
+    padding-left: 0;
+    /*ナビ部分の a タグの文字色*/
+    color: #333 !important;
+}
+
+.sidebar-sticky {
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+/*フォルダ一括開閉ボタン*/
+#folders {
+    float: right;
+    position: sticky;
+    cursor: pointer;
+    top: 22px;
+    right: 10px;
+}
+
+#folders>i:hover {
+    color: #cccccc;
+}
+
+.active, a.current , a.current:hover {
+    background-color: inherit;
+}
+
+.active, .current>a {
+    color: #1a7254 !important;
+    font-weight: bold;
+}
+
+.toctree-l2 a:hover {
+    text-decoration: underline;
+}
+
+p.caption {
+    padding-top: 5px;
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.toctree-l1 {
+    /*改行対策*/
+    padding-left: 30px;
+}
+
+.toctree-l1>a {
+    color: #666!important;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.toctree-l1>a:before {
+    content: '\f07c';
+    font-size: 17px;
+    width: 30px;
+    margin-left: -30px;
+}
+
+.toctree-l1>a.close-folder:before {
+    content: '\f07b' !important;
+    font-size: 17px;
+    width: 30px;
+    color: #666;
+    /*改行対策*/
+    margin-left: -30px;
+}
+
+.toctree-l1 ul {
+    display: none;
+}
+
+.toctree-l1.current>ul {
+    display: block;
+}
+
+.toctree-l2 {
+    font-size: 15px;
+    /*改行対策*/
+    padding-left: 30px;
+}
+
+.toctree-l2>a:before {
+    content: '\f068';
+    height: 15px;
+    line-height: 15px;
+    width: 30px;
+    font-size: 15px;
+    /*子リストの疑似アイコンのサイズを小さくするため、左右のpaddingで中央揃え。rightは字間を揃えるため+10px*/
+    padding-left: 2px;
+    padding-right: 14px;
+    /*改行対策*/
+    margin-left: -30px;
+}
+
+.toctree-l2>a.close-icon:before {
+    content: '\f067';
+    height: 15px;
+    line-height: 15px;
+    width: 30px;
+    font-size: 15px;
+    /*子リストの疑似アイコンのサイズを小さくするため、左右のpaddingで中央揃え。rightは字間を揃えるため+10px*/
+    padding-left: 2px;
+    padding-right: 14px;
+    /*改行対策*/
+    margin-left: -30px;
+}
+
+.toctree-l2>ul {
+    /*fontサイズの半分*/
+    padding-left: 7.5px!important;
+}
+
+.toctree-l2.current>ul {
+    display: block;
+}
+
+.toctree-l3 {
+    border-left: solid 2px #bbb;
+    margin-left: -2px;
+}
+
+.toctree-l3>a {
+    font-size: 14px;
+    /*親要素と同じに*/
+    padding-left: 13px;
+    margin: 0!important;
+}
+
+/*TOPページ*/
+.index-text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.pickup-title {
+    padding: 8px 10px;
+    margin: 20px 0;
+    border-bottom: solid 3px #ccc;
+}
+
+.pickup-title p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.pickup-document {
+    padding: 0 20px;
+}
+
+.card {
+    background-color: inherit;
+    border: none;
+}
+
+.card-title {
+    margin-bottom: 0;
+}
+
+.card-title p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pickup-1 p:before {
+    content: '\f02e';
+    vertical-align: -5px;
+}
+
+.pickup-2 p:before {
+    content: '\f019';
+    vertical-align: -5px;
+}
+
+.pickup-3 p:before {
+    content: '\f128';
+    vertical-align: -5px;
+}
+
+.pickup-4 p:before {
+    content: '\f0c1';
+    vertical-align: -5px;
+}
+
+.card>ul {
+    padding-left: 40px;
+}
+
+.card>ul>li {
+    font-size: 13px;
+}
+
+.card>ul>li p {
+    margin-bottom: 10px;
+}
+
+.card>ul>li p:before {
+    content: '\f068';
+    font-size: 13px;
+    padding-right: 15px;
+}
+
+/*検索結果*/
+#search-results {
+    margin-top: 56px!important;
+    margin-bottom: 30px!important;
+}
+
+#search-results h2 {
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+
+#search-results>p {
+    padding-left: 15px;
+}
+
+#search-results li {
+    padding: 15px 0 15px 15px;
+    border-bottom: solid 1px #ccc;
+}
+
+#search-results li:last-of-type {
+    border: none;
+}
+
+/*記事内*/
+/*index がつくクラス名 ・・・ index.rst で使う擬似的な見出し*/
+
+/*!*#id2直下の要素を全てアイコンの幅だけ右にずらす(段落対策)*!*/
+.section>.section>div:not(h2), a>.section-h2-img, .section-h2-list, .arabic {
+    margin-left: 34px;
+}
+
+.section {
+    margin: 30px 0;
+}
+
+.section h1 {
+    font-size: 30px;
+    margin: 30px 0;
+}
+
+.section h2, .index-h2, .section h3, .index-h3 {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #333;
+}
+
+.section h3, .index-h3 {
+    font-size: 17px;
+}
+
+.section-h2:before, .index-h2:before {
+    content: '\f518';
+    font-size: 21px;
+}
+
+.section:last-of-type {
+    margin-bottom: 70px;
+}
+
+.section>.section {
+    margin-bottom: 0!important;
+}
+
+.line-block, .section-h2-list {
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.section>.line-block {
+    margin-top: 10px;
+}
+
+table .line-block {
+    margin: 0;
+}
+
+/*テーブル*/
+table {
+    margin: 20px 0;
+    width: 100%;
+}
+
+tr.row-odd {
+    background-color: #eeeeee;
+}
+
+tr>th:first-of-type {
+    min-width: 30%;
+}
+
+tr>td{
+    padding: 5px 20px;
+}
+
+th {
+    padding: 10px 0;
+    text-align: center;
+}
+
+th.head {
+    background-color: #fff;
+    border-bottom: solid 3px #eee;
+}
+
+th>p, td>p {
+    margin: 0;
+}
+
+/*リスト*/
+
+ .simple>li:not(.pickup-document li) {
+    list-style-type: circle!important;
+    margin-left: 2em;
+}
+
+.section-h2-list li {
+    list-style-type: circle!important;
+    margin-left: 2em;
+}
+
+.section-h2-list li p {
+    margin-bottom: 5px;
+}
+
+ol {
+    list-style-type: decimal !important;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/*フッター*/
+
+footer {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: auto;
+    border-top: solid 2px #666;
+}
+
+.footer{
+    height: 70px!important;
+    background-color: #666!important;
+    text-align: right;
+    margin-right: 0;
+    margin-left: auto;
+    max-width: 1000px;
+}
+
+.footer span {
+    color: #fff;
+    font-size: 12px;
+    /*↓footer:70px - border:2px*/
+    line-height: 68px;
+}

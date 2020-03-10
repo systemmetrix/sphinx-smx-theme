@@ -1,0 +1,109 @@
+{% extends 'basic/layout.html' %}
+
+{% set logo = 'header_logo.png' %}
+{% set icon = 'icon.png' %}
+{% set favicon = 'favicon.ico' %}
+{% set css_files = css_files + ["_static/style.css", "_static/pygments.css"] %}
+
+{% set i18n = {
+    'homepage': {'ja': 'ホームページ', 'en': 'Home Page'},
+    'lang': {'ja': '言語', 'en': 'Language'},
+    'ja': {'ja': '日本語', 'en': 'Japanese'},
+    'en': {'ja': '英語', 'en': 'English'},
+    'search': {'ja': '検索', 'en': 'Search'},
+} %}
+
+{% block htmltitle %}
+<title id="html-title">{{theme_html_title}}</title>
+{% endblock %}
+
+{% block extrahead %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ pathto('_static/bootstrap.min.css', 1) }}" type="text/css" />
+    <link rel="stylesheet" href="{{ pathto('_static/style.css', 1) }}" type="text/css" />
+    <link rel="stylesheet" href="{{ pathto('_static/add_style.css', 1) }}" type="text/css" />
+    <link rel="stylesheet" href="{{ pathto('_static/change.css', 1) }}" type="text/css" />
+{% endblock %}
+
+{% block header %}
+<div class="container sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="header_logo">
+            <a class="navbar-brand" href="{{ pathto(master_doc) }}">
+                <img src="{{ pathto('_static/' + logo, 1) }}" style="height: 30px;" class="d-inline-block align-top" alt="">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="header_contents">
+            <div class="collapse navbar-collapse header_contents_form" id="navbarSupportedContent" >
+                <form class="form-inline my-2 my-lg-0 header-search" action="{{ pathto('search') }}" method="get">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" />
+                    <button class="btn btn-outline-success my-2 my-sm-0 pseudo-icon" type="submit" value="{{ _('Go') }}"></button>
+                </form>
+                <ul class="navbar-nav mr-auto header_contents_link">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{theme_site_url}}">{{ i18n['homepage'][language] }}</a>
+                    </li>
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ i18n['lang'][language] }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ pathto('../ja/index.html', 1) }}">{{ i18n['ja'][language] }}</a>
+                            <a class="dropdown-item" href="{{ pathto('../en/index.html', 1) }}">{{ i18n['en'][language] }}</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+{% block relbar1 %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="main-nav">
+            <div id="scrollspy" class="sidebar-sticky">
+                <span id="folders">
+                    <i id="folder-open" class="fas fa-folder-open"></i>
+                    <i id="folder-close" class="fas fa-folder"></i>
+                </span>
+                {{ toctree(collapse=false,maxdepth=3) }}
+            </div>
+        </div>
+        <div class="main-contents">
+            <div class="body wrapper" role="main" data-spy="scroll" data-target="#scrollspy" data-offset="100">
+                <div class="block-contents">
+                    {% block body %} {% endblock %}
+                </div>
+                <footer>
+                    {% if language == 'ja' %}
+                    <div class="footer"><span>Copyright © {{ theme_company_name_ja }}</span></div>
+                    {% else %}
+                    <div class="footer"><span>© {{ theme_company_name_en }} All Rights Reserved.</span></div>
+                    {% endif %}
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block relbar2 %}{% endblock %}
+
+{% block footer %}
+<script src="{{ pathto('_static/bootstrap.bundle.min.js', 1) }}"></script>
+<script src="{{ pathto('_static/sidebar.js', 1) }}"></script>
+<script src="{{ pathto('_static/nav1.js', 1) }}"></script>
+{% if theme_nav_hierarchy == 2 %}
+<script src="{{ pathto('_static/nav2.js', 1) }}"></script>
+{% endif %}
+<script src="{{ pathto('_static/scroll.js', 1) }}"></script>
+{% endblock %}

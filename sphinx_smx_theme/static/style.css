@@ -1,0 +1,77 @@
+/*メインコンテンツの sticky 対応*/
+.body {
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+.body>.section {
+    display: block;
+    padding-top: 56px;
+    margin-top: -56px;
+}
+
+/*サイドバーの sticky 対応*/
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+/*サイドバーの表示を修正*/
+.nav-link {
+    display: block;
+    padding: .25rem .5rem;
+    margin: .1rem 0;
+}
+
+ul, ol {
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.active, a.current {
+    background-color: #007bff;
+    border-radius: .25rem;
+}
+
+.active, a.current {
+    color: #fff;
+}
+
+/*index から toctree を隠す*/
+.toctree-wrapper {
+    display: none;
+}
+
+/*検索結果のハイライト*/
+.highlighted {
+    border-radius: .25rem;
+    padding: .25rem .5rem;
+    background-color: #fbe54e;
+}
+
+/*ソースコードのハイライト*/
+div[class^='highlight'] {
+    border: 1px solid #e1e4e5;
+    overflow-x: auto;
+    margin: 1px 0 24px 0;
+}
+
+div[class^='highlight'] div[class^='highlight'] {
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+div[class^='highlight'] pre {
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: pre;
+    margin: 0;
+    padding: 12px 12px;
+    display: block;
+    overflow: auto;
+}
