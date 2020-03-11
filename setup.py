@@ -1,12 +1,11 @@
-from setuptools import setup
 from setuptools import find_packages
-
+from setuptools import setup
 
 setup(
     name='sphinx_smx_theme',
     version='1.0.35',
-    author='sakaguchi',
-    author_email='sakaguchi@systemmetrix.jp',
+    author='hata',
+    author_email='hata@systemmetrix.jp',
     url='www.systemmetrix.jp',
     zip_safe=False,
     include_package_data=True,
